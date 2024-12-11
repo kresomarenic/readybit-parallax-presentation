@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ParallaxSection } from '@/components/ParallaxSection';
 import { ServiceCard } from '@/components/ServiceCard';
 import { TechStack } from '@/components/TechStack';
+import { ScrollIndicator } from '@/components/ScrollIndicator';
 import { Database, Server, Code, Terminal, Coffee, Cpu, HardDrive, Network } from 'lucide-react';
 
 const Index = () => {
@@ -37,7 +38,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-readybit-light/20">
       {/* Hero Section */}
-      <ParallaxSection className="min-h-screen flex items-center justify-center px-4">
+      <ParallaxSection className="min-h-screen flex items-center justify-center px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,6 +60,7 @@ const Index = () => {
             Delivering robust backend solutions and IT consulting services
           </p>
         </motion.div>
+        <ScrollIndicator />
       </ParallaxSection>
 
       {/* Services Section */}

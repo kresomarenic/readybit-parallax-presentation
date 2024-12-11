@@ -22,11 +22,17 @@ export const ParallaxSection: React.FC<ParallaxSectionProps> = ({
         const sectionHeight = section.offsetHeight;
         const viewportHeight = window.innerHeight;
 
+        // Only apply parallax when the section is in view
         if (
           scrolled + viewportHeight > sectionTop &&
           scrolled < sectionTop + sectionHeight
         ) {
-          const yPos = (scrolled - sectionTop) * speed;
+          // Limit the parallax effect to prevent overlap
+          const maxParallax = sectionHeight * 0.3; // 30% of section height
+          const yPos = Math.min(
+            (scrolled - sectionTop) * speed,
+            maxParallax
+          );
           section.style.transform = `translate3d(0, ${yPos}px, 0)`;
         }
       }
